@@ -2,41 +2,64 @@ package controller;
 
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import model.Produto;
-import service.Service;
 
 @Path("/produto")
 public class ProdutoWS extends ModelWS<Produto> {
 
 	@Override
+	@POST
 	@Path("/create")
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public void create(Produto entity) {
 		super.create(entity);
 	}
 	
 	@Override
-	@Path("/find")
+	@GET
+	@Path("/find/{id}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Produto find(@PathParam("id") Integer id) {
+		return Produto.builder().id(id).build();
+	}
+	
+	@GET
+	@Path("/find-product")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Produto find(Produto entity) {
-		return Produto.builder().id(1).build();
+		return null;
 	}
 
 	@Override
+	@GET
 	@Path("/find-all")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public List<Produto> findAll() {
 		return super.findAll();
 	}
 
 	@Override
+	@POST
 	@Path("/update")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public void update(Produto entity) {
 		super.update(entity);
 	}
 
 	@Override
+	@DELETE
 	@Path("/delete")
+	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public void delete(Produto entity) {
 		super.delete(entity);
 	}

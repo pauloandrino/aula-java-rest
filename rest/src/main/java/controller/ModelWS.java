@@ -22,8 +22,8 @@ public class ModelWS<T extends Model> {
 		}
 	}
 	
-	public T find(T entity) {
-		return service.getDao().find(entity);
+	public T find(Integer id) {
+		return service.getDao().find(id);
 	}
 	
 	public List<T> findAll() {

@@ -13,15 +13,15 @@ public class DAO<T extends Model> {
 	
 	public DAO(Class<T> klazz) {
 		this.klazz = klazz;
+		EntityManagerUtils.criarConexao();
 	}
 
 	public void create(T entity) {
 	}
 	
-	public T find(T entity) {
-		EntityManagerUtils.criarConexao();
+	public T find(Integer id) {
 		EntityManager em = EntityManagerUtils.criarEntityManager();
-		entity = em.find(klazz, entity.getId());
+		T entity = em.find(klazz, id);
 		EntityManagerUtils.fechaConexao();
 		return entity;
 	}

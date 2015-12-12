@@ -1,7 +1,14 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@Entity
 public class Produto implements Model {
 	
+	@Id
 	private Integer id;
 	private String nome;
 	
