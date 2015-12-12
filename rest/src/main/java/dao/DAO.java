@@ -3,7 +3,6 @@ package dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Table;
 
 import utils.EntityManagerUtils;
 import model.Model;
