@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -45,7 +46,7 @@ public class ProdutoWS extends ModelWS<Produto> {
 	@Path("/find-all")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public List<Produto> findAll() {
-		return super.findAll();
+		return Arrays.asList(Produto.builder().id(1).build());
 	}
 
 	@Override

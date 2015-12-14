@@ -1,17 +1,14 @@
 package controller;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
 import dao.DAO;
 import exception.InvalidModelException;
 import model.Model;
 import service.Service;
 
+import java.util.List;
+
 public class ModelWS<T extends Model> {
 	
-	@Inject
 	private Service<T> service;
 	
 	public void create(T entity) {
