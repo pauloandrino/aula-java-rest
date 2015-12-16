@@ -4,16 +4,22 @@
 persistence http://java.sun.com/xml/ns/persistence/
 persistence_2_0.xsd"
 	version="2.0">
-	<persistence-unit name="rest">
+	<persistence-unit name="PauloPu">
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/rest" />
-			<property name="javax.persistence.jdbc.user" value="java01" />
-			<property name="javax.persistence.jdbc.password" value="java" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:oracle:thin:@localhost:1521:xe" />
+			<property name="javax.persistence.jdbc.user" value="gft" />
+			<property name="javax.persistence.jdbc.password" value="password" />
 			<property name="javax.persistence.transactionType" value="RESOURCE_LOCAL" />
 			<property name="hibernate.show_sql" value="true" />
+			
+<!-- 			<PROPERTY NAME="HIBERNATE.CACHE.USE_SECOND_LEVEL_CACHE" VALUE="TRUE"></PROPERTY> -->
+<!-- 			<PROPERTY NAME="HIBERNATE.CACHE.PROVIDER_CLASS" VALUE="ORG.HIBERNATE.CACHE.EHCACHEPROVIDER"></PROPERTY> -->
+<!-- 			<PROPERTY NAME="HIBERNATE.CACHE.REGION.FACTORY_CLASS" VALUE="ORG.HIBERNATE.CACHE.EHCACHE.SINGLETONEHCACHEREGIONFACTORY"></PROPERTY> -->
+			
 		</properties>
 	</persistence-unit>
 </persistence>

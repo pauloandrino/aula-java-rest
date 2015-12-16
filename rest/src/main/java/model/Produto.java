@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -12,6 +13,10 @@ public class Produto implements Model {
 	private Integer id;
 	private String nome;
 	
+	@ManyToOne
+	private Categoria categoria;
+	private String unidade;
+	
 	public Produto() {
 	}
 	
@@ -20,6 +25,7 @@ public class Produto implements Model {
 		this.nome = b.nome;
 	}
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
@@ -36,6 +42,23 @@ public class Produto implements Model {
 		this.nome = nome;
 	}
 	
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
+
 	public static Builder builder() {
 		return new Builder();
 	}

@@ -11,7 +11,7 @@ public class EntityManagerUtils {
 	private static EntityManager em;
 
 	public static void criarConexao() {
-		emf = Persistence.createEntityManagerFactory("rest");
+		emf = Persistence.createEntityManagerFactory("PauloPu");
 	}
 
 	public static EntityManager criarEntityManager() {

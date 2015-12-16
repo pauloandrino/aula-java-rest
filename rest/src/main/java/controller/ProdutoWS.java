@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -13,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.Produto;
+import dao.DAO;
 
 @Path("/produto")
 public class ProdutoWS extends ModelWS<Produto> {
@@ -46,7 +46,11 @@ public class ProdutoWS extends ModelWS<Produto> {
 	@Path("/find-all")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public List<Produto> findAll() {
-		return Arrays.asList(Produto.builder().id(1).build());
+		
+		DAO<Produto> dao = new DAO<Produto>(Produto.class);
+		List<Produto> produtos = dao.findAll();
+		
+		return produtos;
 	}
 
 	@Override
