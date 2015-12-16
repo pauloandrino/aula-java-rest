@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ModelWS<T extends Model> {
 	
-	private Service<T> service;
+	protected Service<T> service;
 	
 	public void create(T entity) {
 		try {

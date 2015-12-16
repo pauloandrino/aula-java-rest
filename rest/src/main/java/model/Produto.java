@@ -1,8 +1,14 @@
 package model;
 
+import java.math.BigDecimal;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -10,12 +16,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Produto implements Model {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_id_sequence")
+	@SequenceGenerator(name = "produto_id_sequence", sequenceName = "PRODUTO_ID_SEQ", allocationSize = 1)
 	private Integer id;
 	private String nome;
-	
-	@ManyToOne
-	private Categoria categoria;
-	private String unidade;
+	private String descricao;
+	private byte foto;
+	private BigDecimal valor;
+	@OneToMany
+	private Set<Categoria> categorias;
 	
 	public Produto() {
 	}
@@ -38,25 +47,40 @@ public class Produto implements Model {
 		return nome;
 	}
 	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public byte getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte foto) {
+		this.foto = foto;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public Set<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Set<Categoria> categorias) {
+		this.categorias = categorias;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public String getUnidade() {
-		return unidade;
-	}
-
-	public void setUnidade(String unidade) {
-		this.unidade = unidade;
 	}
 
 	public static Builder builder() {

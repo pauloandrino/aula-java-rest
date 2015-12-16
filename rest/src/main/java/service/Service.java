@@ -1,14 +1,14 @@
 package service;
 
+import model.Model;
+import validator.Validator;
 import dao.DAO;
 import exception.InvalidModelException;
-import validator.Validator;
-import model.Model;
 
 public class Service<T extends Model> {
 
-	private Validator<T> validator;
-	private DAO<T> dao;
+	protected Validator<T> validator;
+	protected DAO<T> dao;
 	
 	public DAO<T> getDao() {
 		return dao;

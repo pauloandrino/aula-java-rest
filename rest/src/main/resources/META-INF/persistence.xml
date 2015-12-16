@@ -7,7 +7,7 @@ persistence_2_0.xsd"
 	<persistence-unit name="PauloPu">
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:oracle:thin:@localhost:1521:xe" />

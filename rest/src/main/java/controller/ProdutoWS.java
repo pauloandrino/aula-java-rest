@@ -11,12 +11,17 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import service.ProdutoService;
 import model.Produto;
 import dao.DAO;
 
 @Path("/produto")
 public class ProdutoWS extends ModelWS<Produto> {
 
+	public ProdutoWS() {
+		this.service = new ProdutoService();
+	}
+	
 	@Override
 	@POST
 	@Path("/create")

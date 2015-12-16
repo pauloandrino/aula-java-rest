@@ -20,6 +20,9 @@ public class DAO<T extends Model> {
 	}
 
 	public void create(T entity) {
+		em.getTransaction().begin();
+		em.persist(entity);
+		em.getTransaction().commit();
 	}
 	
 	public T find(Integer id) {
