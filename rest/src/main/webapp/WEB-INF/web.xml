@@ -17,6 +17,11 @@
             <!-- Nome do pacote no seu projeto -->
             <param-value>controller</param-value>
         </init-param>
+        
+        <init-param>
+    		<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+    		<param-value>true</param-value>
+		</init-param>
 
         <!-- Tempo de load -->
         <load-on-startup>1</load-on-startup>

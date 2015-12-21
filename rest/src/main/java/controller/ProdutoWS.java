@@ -11,8 +11,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import service.ProdutoService;
 import model.Produto;
+import service.ProdutoService;
 import dao.DAO;
 
 @Path("/produto")
